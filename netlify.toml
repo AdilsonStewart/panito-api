@@ -1,2 +1,16 @@
-[build] 
-command = "npm install" 
+[build]
+  command = "npm install"
+  publish = "."
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/.netlify/functions/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+  force = true
+
+# Esta regra só deve ser para o frontend - mas como é só API, podemos remover
+# [[redirects]]
+#   from = "/*"
+#   to = "/index.html"
+#   status = 200
